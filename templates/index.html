@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Github Automated Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f2f2f2;
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        form {
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        label {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        input[type="submit"] {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .result-container {
+            background-color: #fff;
+            border: 1px solid #ccc;
+            padding: 20px;
+            border-radius: 4px;
+            margin-top: 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .result-title {
+            font-size: 24px;
+            color: #333;
+            margin-top: 0;
+        }
+
+        .result-details {
+            margin-top: 20px;
+        }
+
+        .result-heading {
+            font-size: 18px;
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .result-text {
+            font-size: 16px;
+            color: #333;
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+
+        .result-link {
+            font-size: 16px;
+            color: #0066cc;
+            text-decoration: none;
+        }
+
+        .result-link:hover {
+            text-decoration: underline;
+        }
+
+    </style>
+    <script>
+        // Display loading spinner
+        function showLoading() {
+            document.getElementById("loading-spinner").style.display = "block";
+        }
+
+        // Hide loading spinner
+        function hideLoading() {
+            document.getElementById("loading-spinner").style.display = "none";
+        }
+    </script>
+</head>
+<body>
+    <h1>Github Automated Analysis</h1>
+    <form action="/" method="POST" onsubmit="showLoading()">
+        <label for="github_url">Github URL:</label>
+        <br>
+        <input type="text" id="github_url" name="github_url" required>
+        <br>
+        <input type="submit" value="Submit">
+    </form>
+
+    {% if title %}
+    <div class="result-container">
+        <h2 class="result-title">Result:</h2>
+        <div class="result-details">
+            <h3 class="result-heading">Repository Name:</h3>
+            <p class="result-text">{{ title }}</p>
+            <h3 class="result-heading">Justification:</h3>
+            <p class="result-text">{{ script }}</p>
+            {% if link %}
+                <h3 class="result-heading">Repository Link:</h3>
+                <a class="result-link" href="{{ link }}" target="_blank">{{ link }}</a>
+            {% endif %}
+        </div>
+    </div>
+{% endif %}
+
+
+</body>
+</html>
