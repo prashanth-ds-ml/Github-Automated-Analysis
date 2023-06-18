@@ -1,5 +1,4 @@
 [build]
-  base = "Github-Automated-Analysis"
   command = "pip install -r requirements.txt && gunicorn app:app"
   publish = "/opt/build/repo/Github-Automated-Analysis"
   [build.environment]
