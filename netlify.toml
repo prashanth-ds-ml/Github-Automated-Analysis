@@ -1,5 +1,0 @@
-[build]
-  command = "pip install -r requirements.txt && gunicorn app:app"
-  publish = "/opt/build/repo/Github-Automated-Analysis"
-  [build.environment]
-    LIBRARY_PATH = "/opt/buildhome/.apt/usr/lib/x86_64-linux-gnu"
